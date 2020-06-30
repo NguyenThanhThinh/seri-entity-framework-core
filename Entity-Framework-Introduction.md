@@ -19,7 +19,7 @@ EF Core is modular – any data providers must be installed too:
 ```Install-Package Microsoft.EntityFrameworkCore.SqlServer```
 
 ## Database First Model: Setup
-Scaffolding DbContext from DB with Scaffold-DbContext command in Package Manager Console:
+Scaffolding DbContext from DB with Scaffold-DbContext command in Package Manager Console:
 
 ```js
 Scaffold-DbContext -Connection "Server=.;Database=…;Integrated Security=True"
