@@ -1,10 +1,10 @@
 ## Entity Framework Core: Overview
 
-The standard ORM framework for .NET and .NET Core
+- The standard ORM framework for .NET and .NET Core
 
-Provides LINQ-based data queries and CRUD operations
+- Provides LINQ-based data queries and CRUD operations
 
-Automatic change tracking of in-memory objects
+- Automatic change tracking of in-memory objects
 
 ## Entity Framework Core: Setup
 
@@ -37,19 +37,19 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
 
 DbContext provides:
 
-CRUD Operations
+- CRUD Operations
 
-A way to access entities
+- A way to access entities
 
-Methods for creating new entities (Add() method)
+- Methods for creating new entities (Add() method)
 
-Ability to manipulate database data by modifying objects
+- Ability to manipulate database data by modifying objects
 
-Easily navigate through table relations
+- Easily navigate through table relations
 
-Executing LINQ queries as native SQL queries
+- Executing LINQ queries as native SQL queries
 
-Managing database creation/deletion/migration
+- Managing database creation/deletion/migration
 
 ## Using DbContext Class
 
@@ -58,11 +58,11 @@ First create instance of the DbContext:
 In the constructor you can pass a database connection string
 DbContext properties:
 
-Database - EnsureCreated/Deleted methods, DB Connection
+- Database - Created/Deleted methods, DB Connection
 
-ChangeTracker - Holds info about the automatic change tracker
+- ChangeTracker - Holds info about the automatic change tracker
 
-All entity classes (tables) are listed as properties
+- All entity classes (tables) are listed as properties
 
 e.g. DbSet<Employee> Employees { get; set; }
 
