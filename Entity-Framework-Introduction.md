@@ -21,13 +21,17 @@ EF Core is modular – any data providers must be installed too:
 ## Database First Model: Setup
 Scaffolding DbContext from DB with Scaffold-DbContext command in Package Manager Console:
 
-```Scaffold-DbContext -Connection "Server=.;Database=…;Integrated Security=True"-Provider Microsoft EntityFrameworkCore.SqlServer -OutputDir Data```
+```js
+Scaffold-DbContext -Connection "Server=.;Database=…;Integrated Security=True"
+-Provider Microsoft EntityFrameworkCore.SqlServer -OutputDir Data
+```
 
 Scaffolding requires the following packages beforehand:
 
-```Install-Package Microsoft.EntityFrameworkCore.Tools```
-
-```Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design```
+```js
+Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
+```
 
 ## The DbContext Class
 
@@ -79,7 +83,7 @@ Executing LINQ-to-Entities query over EF entity:
 Employees property in the DbContext:
 
 ```js
-public partial class HRDbContext : DbContext
+public class HRDbContext : DbContext
 {
   public DbSet<Employee> Employees { get; set; }
   public DbSet<Project> Projects { get; set; }
@@ -131,12 +135,12 @@ Orders a collection... etc
 
 ## What is the Code First Model?
 
-Code First means to write the .NET classes and let EF Core create the database from the mappings
+Code First means to write the .NET classes and let EF Core create the database from the mappings
 
 
 ## Why Use Code First?
 
-- Write code without having to define mappings in XML or create database tables
+- Write code without having to define mappings in XML or create database tables
 
 - Define objects in C# format
 
