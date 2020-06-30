@@ -158,7 +158,7 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
 ## How to Connect to SQL Server?
 
-- One way to connect is to create a **Configuration** class with your connection string:
+- One way to connect is to create a **Configuration** class with your connection string:
 
 ```js
 public static class Configuration
@@ -167,7 +167,7 @@ public static class Configuration
 }
 
 ```
-- Then add the connection string in the OnConfiguring method in the DbContext class
+- Then add the connection string in the OnConfiguring method in the DbContext class
 
 ```js
 protected override void OnConfiguring(DbContextOptionsBuilder builder)
