@@ -148,6 +148,86 @@ Code First means to write the .NET classes and let EF Core create the database f
 
 - Changes to code can be reflected (migrated) in the schema
 
+## Code First with EF Core: Setup
+
+```js
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+```
+
+## How to Connect to SQL Server?
+
+- One way to connect is to create a **Configuration** class with your connection string:
+
+```js
+public static class Configuration
+{
+  public const string ConnectionString = "Server=.;Database=…;";
+}
+
+```
+- Then add the connection string in the OnConfiguring method in the DbContext class
+
+```js
+protected override void OnConfiguring(DbContextOptionsBuilder builder)
+{
+  if (!builder.IsConfigured)
+    builder.UseSqlServer(Configuration.ConnectionString);
+}
+
+```
+
+## Fluent API
+
+- The OnModelCreating Method let us use the Fluent API to describe our table relations to EF Core
+
+```js
+protected override void OnModelCreating(ModelBuilder builder)
+{
+  builder.Entity<Category>()
+    .HasMany(c => c.Posts)
+    .WithOne(p => p.Category);
+
+}
+
+```
+
+## What Are Database Migrations?
+
+Updating database schema without losing data
+
+ - Adding/dropping tables, columns, etc.
+
+Migrations in EF Core keep their history 
+
+ - Entity Classes, DB Context versions are all preserved
+
+Automatically generated
+
+## Migrations in EF Core
+
+To use migrations in EF Core, we use the Add-Migration command from the Package Manager Console
+
+```js
+Add-Migration {MigrationName}
+ ```
+
+ To undo a migration, we use Remove-Migration  
+ ```Remove-Migration```
+
+Commit changes to the database, using Update-Database
+
+```Update-Database```
+
+## Summary
+
+- ORM frameworks maps database schema to objects in a programming language
+- Entity Framework Core is the standard .NET ORM
+- LINQ can be used to query the DB through the DB context
+
+
+
 
 
 
